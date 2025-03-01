@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const backendUrl = `${import.meta.env.VITE_BACKEND}`;
+export const backendUrl = `https://app.ftoyd.com/fronttemp-service`;
 
 const api = axios.create({
   baseURL: backendUrl,
