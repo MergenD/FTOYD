@@ -1,0 +1,51 @@
+.navbar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 22px 42px 0 42px;
+  background-color: #06080c;
+
+  .title {
+    font-size: 32px;
+    font-weight: 400;
+    font-family: 'TacticSans';
+    color: #fff;
+    font-style: italic;
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+
+    .error {
+      width: 480px;
+      height: 56px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #0f1318;
+    }
+
+    .refresh {
+      width: 204px;
+      height: 56px;
+      background-color: #eb0237;
+
+      .refreshContainer {
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        .rotating {
+          animation: spin 1s linear infinite;
+        }
+      }
+    }
+  }
+}
