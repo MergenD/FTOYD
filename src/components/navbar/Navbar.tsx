@@ -6,11 +6,15 @@ import { useMatchStore } from '../../store/store';
 import Alert from '/alert-triangle.svg';
 import { useEffect, useState } from 'react';
 
-export const Navbar = () => {
+export const Navbar = ({ socket }: { socket: boolean }) => {
   const { getMatches } = useMatches();
-  const { setMatches } = useMatchStore();
+  const { setMatches, filter, setFilter } = useMatchStore();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+
+  const handleSelectChange = (e: string) => {
+    setFilter(e);
+  };
 
   const fetchMatches = () => {
     setLoading(true);
@@ -35,11 +39,34 @@ export const Navbar = () => {
     }
   }, [error]);
 
+  const selectOptions = [
+    { value: 'all', label: 'Все' },
+    { value: 'scheduled', label: 'Запланированные' },
+    { value: 'ongoing', label: 'Идущие' },
+    { value: 'finished', label: 'Завершенные' },
+  ];
+
   return (
     <nav className={style.navbar}>
-      <p className={style.title}>Match Tracker</p>
+      <div className={style.titleContainer}>
+        <p className={style.title}>Match Tracker</p>
+        <select
+          name='status'
+          className={style.select}
+          onChange={(e) => handleSelectChange(e.target.value)}
+          value={filter}
+        >
+          {selectOptions.map((option, index) => {
+            return (
+              <option key={index} value={option.value}>
+                {option.label}
+              </option>
+            );
+          })}
+        </select>
+      </div>
       <div className={style.buttons}>
-        {error ? (
+        {error || !socket ? (
           <div className={style.error}>
             <Image src={Alert} preview={false} width={28} height={28} />{' '}
             <span style={{ fontSize: '18px' }}>

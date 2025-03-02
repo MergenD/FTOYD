@@ -16,6 +16,11 @@
     background-color: #0b0e12;
     gap: 14px;
 
+    .image {
+      height: 48px;
+      width: 48px;
+    }
+
     .teamName {
       padding-top: 15px;
     }
@@ -107,6 +112,103 @@
           }
         }
       }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 12px 10px;
+    margin: 8px 0;
+    width: 397px;
+    height: 60px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .team {
+      gap: 6px;
+
+      .image {
+        width: 28px;
+        height: 28px;
+      }
+
+      .teamName {
+        padding-top: 5px;
+        font-size: 14px;
+      }
+
+      .collapseButton {
+        font-size: 20px;
+        margin-top: 10px;
+        display: none;
+      }
+
+      .collapseButtonBottom {
+        font-size: 20px;
+        margin-top: 10px;
+        width: 100%;
+      }
+    }
+
+    .score {
+      gap: 8px;
+      .status {
+        width: 70px;
+        height: 23px;
+        font-size: 12px;
+      }
+    }
+  }
+
+  .colContainer {
+    flex-direction: column;
+    padding: 16px;
+    gap: 20px;
+    height: 300px;
+    width: 397px;
+
+    .vs {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .column {
+      width: 100%;
+      gap: 8px;
+      margin: 0;
+    }
+
+    .row {
+      flex-direction: row;
+      height: auto !important;
+      gap: 8px;
+
+      .player {
+        width: 100%;
+        .playerInfo {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          height: 71px !important;
+          padding: 5px !important;
+        }
+
+        span {
+          font-size: 10px;
+        }
+      }
+    }
+
+    .row2 {
+      align-items: flex-start;
+      gap: 8px;
+      height: auto;
     }
   }
 }
